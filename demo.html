@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>simpleCharts.js</title>
+  <meta name="description" content="">
+
+
+  <meta name="viewport" content="width=device-width">
+
+
+
+<script type="text/javascript" src="raphael.min.js"></script>
+<script type="text/javascript" src="simpleCharts.min.js"></script>
+
+
+
+<style type="text/css">
+#canvas1 {
+border: 1px solid #aaa;
+margin:auto;
+}
+
+#canvas2 {
+border: 1px solid #aaa;
+margin:auto;
+}
+
+#canvas3 {
+border: 1px solid #aaa;
+margin:auto;
+}
+
+#canvas4 {
+border: 1px solid #aaa;
+margin:auto;
+}
+
+#canvas5 {
+border: 1px solid #aaa;
+margin:auto;
+}
+
+#canvas6 {
+border: 1px solid #aaa;
+margin:auto;
+}
+p{
+width:900px;
+margin:auto;
+border:1px solid #000000;
+}
+</style>
+
+
+</head>
+<body>
+<div style="width:1200px; margin:auto">
+	<h1>
+	Simple Chart js
+	</h1>
+	<h3>
+	A set of hight customizable charts
+	</h3>
+
+		<div id="canvas1" style="width:50%;"></div>
+<br/>
+<br/>
+		<div id="canvas2" style="width:50%;"></div>		
+
+<br/>
+<br/>
+
+		<div id="canvas3" style="width:50%;"></div>
+<br/>
+<br/>
+		<div id="canvas4" style="width:50%;"></div>		
+
+<br/>
+<br/>
+
+		<div id="canvas5" style="width:50%;"></div>
+<br/>
+<br/>
+		<div id="canvas6" style="width:50%;"></div>		
+
+<br/>
+<br/>	
+	<!-- p>
+	Colors can be set as gradient: '90-#ccc-#a1a1a1:100-90'
+	</p>
+	<p>
+	gridSettings:{
+		bgColor:'#ffffff', //this.canvas.style.background='#a1a1a1';
+		// category 
+		categoryBoxWidth : 160, // width of the vertical strip where, in the case of bar chart, the categories are printed
+		categoryFontSize :12,
+		//scale
+		scaleColor : '#0000ff',//'#ccd6eb',
+		labelColor : '#666666',
+		scaleFontSize : 12,
+		scaleArea:45, //the width of the 
+		font:{
+				'font-family' : "Arial, sans-serif",
+				fill : '#000000', // font color
+				'font-size' : 12, 
+				'font-style' : 'normal', 
+				'font-weight' : 'normal'},
+		popUpA:{'maxWidth':200, paddingX:5, paddingY:5, justifyContent:'left', fill:'#ffffff', stroke:'#a1a1a1', 'stroke-width': 0.5, font:{fill:'#ff88ee', 'font-size':14, 'font-style':'normal', 'font-weight':'normal'}},
+		popUpB:{'maxWidth':300,  paddingX:5, paddingY:5, justifyContent:'left', fill:'#000000', stroke:'#a1a1a1', 'stroke-width': 0, font:{fill:'#ffffff', 'font-size':12, 'font-style':'normal', 'font-weight':'normal'}},				
+	},
+	title:{fill:'#000000', 'font-size':22, 'font-style':'normal','font-weight':'bold', },
+	subTitle:{fill:'#000000','font-size':16, 'font-style':'normal','font-weight':'normal'},
+	axisTitles : {fill:'#a18899','font-size':16, 'font-style':'normal','font-weight':'normal'},
+	keys : {fill:'#000000','font-size':14, 'font-style':'normal','font-weight':'normal'},	
+	additionalInfo: {fill:'#000000', 'font-size':12, 'font-style':'normal','font-weight':'normal'}
+};
+
+</p>
+<p>
+rowHeight : 30, //width of the space where the data will be written: set a max height so the rows adapt visually proportional
+barThickness:14, // the a max thickness too
+</p-->
+
+</div>
+<script type="text/javascript">
+"use strict";
+//*
+var objData={
+	canvasID : 'canvas1',
+	chartType:'bars',
+	gridSettings:{
+						popUpA:{sfill:'#bebebe', sjustifyContent:'center'},		
+					},
+	title:{text:'Test Bars', align:'left'},
+	subTitle:{text:'Test Bars', align:'left'},
+	axisTitles : {yTitle:'Waste Types', xTitle: 'Tonnes', color:'#a1a1a1'},
+	keys : {position:'right', align:'left', font:{}},
+   labels: ['17.01.07 - Aggregates','17.01.07 - Hardcore/Concrete a a a a a a a a a a a a a a a a a a a a a a a a a a a b b b b b b b b b b b b b b b b b b b b b b b c','17.01.03 - Ceramics','17.09.04 - Ceiling Tiles','17.05.04 a b c d e f g h y j u i k  - Soil','20.01.01 - Cardboard','20.01.01 - Paper','17.02.03 - Soft Plastic','17.02.03 - Hard Plastic','17.02.02 - Plate Glass','17.02.02 - Glass Bottles','17.02.01 - Timber','17.02.01 - MDF','17.02.01 - Ply & Chipboard','17.04.07 - Metal','17.08.02 - Plasterboard','17.06.04 - Insulation Materials','20.01.11 - Fabrics','20.03.01 - Canteen Waste','20.02.01 - Vegetation'],
+   dataSet : [
+					{
+						name: 'Recycled',
+						data: [6181.9700,2636.9860,34.1180,53.2350,45.1500,287.9192,83.4599,224.0508,194.6011,94.3620,14.8800,1515.4128,87.1713,197.7480,580.6430,416.7000,77.7955,5.2900,92.0340,30.8220],
+						color:'#67af45'
+					},
+					{
+						name: 'Recovered',
+						color:'#188ee2',
+						data: [20.0000,0.0000,0.0000,0.5500,0.0000,0.0000,0.0000,6.8882,0.0000,0.2200,0.0000,68.1912,1.4000,20.1720,0.0000,0.0000,8.4795,0.3900,9.1100,0.0000]
+			    	},
+					{
+						name: 'Landfill',
+						color:'#F7464A',
+						data: [20.0000,0.0000,0.0000,0.0000,0.0000,0.0148,0.0031,0.0140,0.0009,0.1260,0.0000,-0.0000,0.0017,-0.0000,0.0000,0.0000,0.0000,-0.0000,0.0000,0.0000]
+					}
+				],
+	popUpBox:{font:{"font-weight":500}},
+};
+
+var bars=new Bars(objData);
+/**/
+</script>
+
+
+<script type="text/javascript">
+
+var objData2={
+	canvasID : 'canvas2',
+	chartType:'bubbles',
+	gridSettings:{
+		bubbleStyle : {fill : '#98cc7f', stroke:'#61a441'},
+	},
+	title:{text:'Test Bubbles', align:'left'},
+	subTitle:{text:'Test Bubbles', align:'left'},
+	axisTitles : {xTitle:'Removed Waste (t)', yTitle: 'Cost (£)'},
+	keys : {position:'top', align:'left'},
+
+	dataNames : ['Removed Waste (t): ', 'Cost: £', 'Num of Sites: '],
+
+   dataSet : [
+		{ data : [0.97, 2090, 2], name: 'Derbyshire County Council'},
+		{ data : [5085.568, 151022.4, 8], name: 'Bedfordshire Council'},
+		{ data : [2.5, 660, 3], name: 'Buckinghamshire Council'},
+		{ data : [137.22, 2940, 2], name: 'Central Beds SoR Contract'},
+		{ data : [5622.973, 90978.93, 5], name: 'Essex Council'},
+		{ data : [62.12, 15032.5, 1], name: 'Estate Lighting Solutions'},
+		{ data : [17.444, 5271, 1], name: 'Head Office'},
+		{ data : [1140.98, 125223.82, 3], name: 'Hertfordshire Council'},
+		{ data : [428.682, 42364.6, 1], name: 'Hounslow Council'},
+		{ data : [400.46, 39062.65, 3], name: 'Hull City Council'},
+		{ data : [18.7, 1596, 1], name: 'Leicestershire County Council'},
+		{ data : [0, 0, 1], name: 'Lincolnshire Council'},
+		{ data : [147.34, 4610, 4], name: 'Milton Keynes'},
+		{ data : [3865.442, 103279.56, 3], name: 'Milton Keynes Contract'},
+		{ data : [5002.38, 97027.95, 2], name: 'Norfolk Council'},
+		{ data : [1035.16, 23483, 6], name: 'Wiltshire and Swindon'},
+		{ data : [4673.7006, 77784.59, 4], name: 'Wiltshire and Swindon 1'},
+	]
+};
+
+var bubbles=new BubbleChart(objData2);
+/**/
+</script>
+
+
+<script type="text/javascript">
+"use strict";
+//*
+var objData3={
+	canvasID : 'canvas3',
+	chartType:'columns',
+	title:{text:'Test Columns', align:'left'},
+	subTitle:{text:'Test Columns', align:'left'},
+	axisTitles : {xTitle:'Continents', yTitle: 'Tonnes'},
+	keys : {position:'right', align:'top'},
+	labels : ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+	dataSet : [
+		{ 
+			data : [3626.8812, 43326.3103, 496.1106,8335.9516,66.4822], name: 'Recycled',  color : '#67af45'
+		},
+		{ 
+			data : [7682.4436, 190.07, 1127.4844,352.3406,284.803], name: 'Recovered',  color : '#188ee2'
+		},
+		{ 
+			data : [673.5668,6087.886,1229.0503,673.4203,1101.0603], name: 'Landfill',  color : '#F7464A'
+		},	
+   ]
+};
+
+
+new Columns(objData3);
+/**/
+</script>
+
+
+
+<script type="text/javascript">
+"use strict";
+//*
+var objData4={
+	canvasID : 'canvas4',
+	chartType:'donut',
+	gridSettings:{
+						donutWidth:60,
+						orderData:false,
+						},
+	title:{text:'Test Donut', align:'left'},
+	subTitle:{text:'Test Donut', align:'left'},
+	keys : {position:'right', align:'middle'},
+	dataSet : [
+						{ data : [25.00], name: 'Recycled', color:'#67af45'},
+						{ data : [14.50], name: 'Recovered', color:'#188ee2'},
+						{ data : [60.50], name: 'Landfill', color:'#F7464A'},
+            ]
+};
+
+
+new DonutChart(objData4);
+
+/**/
+</script>
+<script type="text/javascript">
+
+var objData5={
+   canvasID : 'canvas5',
+   chartType:'lines',
+   
+   title:{text:'Test Lines', align:'left'},
+   subTitle:{text:'Test Lines', align:'left'},
+   axisTitles : {xTitle:'Customers', yTitle: 'CO2 (tonnes)'},
+	keys : {position:'right', align:'top'},
+   serie : ['a', 'b', 'c', 'd', 'e'],
+             
+   dataSet : [
+		{ 
+			data : [3626.8812, 43326.3103, 496.1106,8335.9516,66.4822], name: 'Recycled',  color : '#67af45'
+		},
+		{ 
+			data : [7682.4436, 190.07, 1127.4844,352.3406,284.803], name: 'Recovered',  color : '#188ee2'
+		},
+		{ 
+			data : [673.5668,6087.886,1229.0503,673.4203,1101.0603], name: 'Landfill',  color : '#F7464A'
+		},
+	]
+};
+
+setTimeout(function(){
+	new Lines(objData5);
+}, 5000);447935435110
+</script>
+
+<script>
+
+
+var objData6={
+
+	canvasID : 'canvas6',
+	chartType:'sunburst',
+	gridSettings:{
+						donutWidth:60,
+						orderData:false,
+						},
+	title:{text:'Test Sunburst', align:'left'},
+	subTitle:{text:'Test Sunburst', align:'left'},
+	keys : {position:'right', align:'middle'},
+   dataSet : [
+				   { data : [20.50, [8.40, 5.60, 6.50]], name: ['Derbyshire County Council', ['Metal', 'Glass', 'Cardboard']], color:'#67af45'},
+					{ data : [45.00, [20.60, 24.40]], name: ['Bedfordshire Council', ['Wood', 'Plastic']], color:'#188ee2'},
+					{ data : [34.50, [15.35, 5.10, 14.05]], name: ['Derby', ['Glass', 'Paper', 'Others']], color:'#F7464A'},
+            ]
+};
+
+setTimeout(function(){
+	new SunburstChart(objData6);
+},100);
+</script>
+
+
+
+</body>
+
+
+</html>

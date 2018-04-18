@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+<title>Raphael Play</title>
+<script type="text/javascript" src="raphael.min.js"></script>
+<script type="text/javascript" src="simpleCharts.min.js"></script>
+
+<style type="text/css">
+#canvas {
+	lwidth: 800px;
+	lheight: 50px;
+	border: 1px solid #aaa;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<!--div id="canvas" style="width: 1000px;margin:auto;margin-top: 20px;margin-bottom: 20px" ></div-->
+<div id="canvas" style="width: 1000px;margin:auto;" ></div>
+
+
+<script type="text/javascript">
+
+var objData={
+	canvasID : 'canvas',
+  chartType:'bubbles',
+  gridSettings:{
+	  bubbleStyle : {fill : '#98cc7f', stroke:'#61a441'},
+  },
+  title:{text:'Test Columns', align:'left'},
+  subTitle:{text:'Test Columns', align:'left'},
+  axisTitles : {xTitle:'Removed Waste (t)', yTitle: 'Cost (£)'},
+	keys : {position:'top', align:'left'},
+	dataNames : ['Removed Waste (t): ', 'Cost: £', 'Num of Sites: '],
+   dataSet : [
+   
+		{ data : [7, 2000, 2], name: 'Derbyshire County Council'},
+		{ data : [85.568, 122.4, 8], name: 'Bedfordshire Council'},
+		{ data : [25, 6, 3], name: 'Buckinghamshire Council'},
+		{ data : [17.22, 240, 2], name: 'Central Beds SoR Contract'},
+		{ data : [52.973, 98.93, 5], name: 'Essex Council'},
+		{ data : [62.12, 150.5, 1], name: 'Estate Lighting Solutions'},
+	]
+};
+
+
+var grid=new BubbleChart(objData);
+
+
+</script>
+
+</body>
+
+
+</html>

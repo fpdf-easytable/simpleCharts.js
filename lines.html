@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+<title>Raphael Play</title>
+<script type="text/javascript" src="raphael.min.js"></script>
+<script type="text/javascript" src="simpleCharts.min.js"></script>
+
+
+<style type="text/css">
+#canvas {
+lwidth: 500px;
+height: 50px;
+border: 1px solid #aaa;
+}
+div{
+min-height:30px;
+border:1px solid;
+}
+</style>
+
+
+</head>
+<body>
+
+<div id="canvas" style="width: 600px;margin:auto;" ></div>
+
+<script type="text/javascript">
+
+var objData={
+   canvasID : 'canvas',
+   chartType:'lines',
+   title:{text:'Test Columns', align:'left'},
+   subTitle:{text:'Test Columns', align:'left'},
+   axisTitles : {xTitle:'Customers', yTitle: 'CO2 (tonnes)'},
+	keys : {position:'right', align:'top'},
+   serie : ['a dsasd ads asd asdasfdsfs', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p','q', 'r','s', 't'],
+             
+   dataSet : [
+		{
+			name: 'Recycled',
+			data: [6181.9700, 2636.9860, 34.1180, 53.2350, 45.1500, 287.9192, 83.4599, 224.0508, 194.6011, 94.3620, 14.8800, 1515.4128, 87.1713, 197.7480, 580.6430, 416.7000, 77.7955, 5.2900, 92.0340, 30.8220],
+			color:'#67af45'
+		},
+		{
+			name: 'Recovered',
+			color:'#188ee2',
+			data: [20.0000,0.0000,0.0000,0.5500,0.0000,0.0000,0.0000,6.8882,0.0000,0.2200,0.0000,68.1912,1.4000,20.1720,0.0000,0.0000,8.4795,0.3900,9.1100,0.0000]
+		},
+		{
+			name: 'Landfill',
+			color:'#F7464A',
+			data: [20.0000,0.0000,0.0000,0.0000,0.0000,0.0148,0.0031,0.0140,0.0009,0.1260,0.0000,-0.0000,0.0017,-0.0000,0.0000,0.0000,0.0000,-0.0000,0.0000,0.0000]
+		}
+	]
+};
+
+
+new Lines(objData);
+
+</script>
+
+</body>
+
+
+</html>

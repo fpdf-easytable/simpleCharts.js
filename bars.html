@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+<title>Raphael Play</title>
+<script type="text/javascript" src="raphael.min.js"></script>
+<script type="text/javascript" src="simpleCharts.min.js"></script>
+
+<style type="text/css">
+#canvas {
+dwidth: 800px;
+height: 1500px;
+border: 1px solid #aaa;
+}
+#canvas2 {
+dwidth: 700px;
+dheight: 500px;
+border: 1px solid #aaa;
+}
+
+</style>
+
+
+
+</head>
+<body>
+
+<div id="canvas" style="width: 1000px;margin:auto;" ></div>
+
+
+<script type="text/javascript">
+
+var objData={
+	canvasID : 'canvas',
+	chartType:'bars',
+	gridSettings:{
+						speed:200,
+						'font-family':'Times New Roman, Times, serif',
+						popUpA:{dfill:'#bebebe', sjustifyContent:'center', font:{'font-family':'Courier New, Courier, monospace'}},		
+					},
+	title:{text:'Test Bars', align:'left'},
+	subTitle:{text:'Test Bars', align:'left'},
+	axisTitles : {yTitle:'Countries', xTitle: 'Tonnes', color:'#a1a1a1'},
+	keys : {position:'right', align:'left', font:{'font-family':'Arial'}},
+   labels: ['17.01.07 - Agdddsdf sdftj\n rj gates', '17.01.07 - Hardcore/Concrete a a a a a a a a a a a a a a a a a a a a a a a a a a a b b b b b b b b b b b b b b b b b b b b b b b c','17.01.03 - Ceramics','17.09.04 - Ceiling Tiles','17.05.04 a b c d e f g h y j u i k  - Soil','20.01.01 - Cardboard','20.01.01 - Paper','17.02.03 - Soft Plastic','17.02.03 - Hard Plastic','17.02.02 - Plate Glass','17.02.02 - Glass Bottles','17.02.01 - Timber','17.02.01 - MDF','17.02.01 - Ply & Chipboard','17.04.07 - Metal','17.08.02 - Plasterboard','17.06.04 - Insulation Materials','20.01.11 - Fabrics','20.03.01 - Canteen Waste','20.02.01 - Vegetation'],
+   dataSet : [
+					{
+						name: 'Recycled',
+						data: [6181.9700 ,2636.9860,34.1180,53.2350,45.1500,287.9192,83.4599,224.0508,194.6011,94.3620,14.8800,1515.4128,87.1713,197.7480,580.6430,416.7000,77.7955,5.2900,92.0340,30.8220],
+						color:'#67af45'
+					},
+					{
+						name: 'Recovered',
+						color:'#188ee2',
+						data: [20.0000, 0.0000,0.0000,0.5500,0.0000,0.0000,0.0000,6.8882,0.0000,0.2200,0.0000,68.1912,1.4000,20.1720,0.0000,0.0000,8.4795,0.3900,9.1100,0.0000]
+			    	},
+					{
+						name: 'Landfill',
+						color:'#F7464A',
+						data: [20.0000, 0.0000,0.0000,0.0000,0.0000,0.0148,0.0031,0.0140,0.0009,0.1260,0.0000,-0.0000,0.0017,-0.0000,0.0000,0.0000,0.0000,-0.0000,0.0000,0.0000]
+					}
+				],
+};
+
+var bars=new Bars(objData);
+
+</script>
+
+</body>
+
+
+</html>

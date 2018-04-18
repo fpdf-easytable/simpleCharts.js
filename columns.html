@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+<title>Raphael Play</title>
+<script type="text/javascript" src="raphael.min.js"></script>
+<script type="text/javascript" src="simpleCharts.min.js"></script>
+
+<style type="text/css">
+#canvas {
+lwidth: 500px;
+height: 50px;
+border: 1px solid #aaa;
+}
+div{
+min-height:30px;
+border:1px solid;
+}
+</style>
+
+
+</head>
+<body>
+
+<div id="canvas" style="width: 600px;margin:auto;" ></div>
+
+<script type="text/javascript">
+
+var objData={
+   canvasID : 'canvas',
+   chartType:'columns',
+   title:{text:'Test Columns', align:'left'},
+   subTitle:{text:'Test Columns', align:'left'},
+   axisTitles : {xTitle:'Customers', yTitle: 'CO2 (tonnes)'},
+	keys : {position:'right', align:'top'},
+   labels : ['John Lewis','Internal Projects',
+'Nuffield Health', 'Morrisons', 'Multi Storey Carpark Sheffield', 'Waitrose',
+'Boots', 'Asda', 'M&amp;S', 'Village Outlet', 'EE', 'Marks &amp; Spencer', 'Simons Development LTD',
+'Magna Park','Pure Gym', 'Multi Storey Carpark Stafford', 'JLP', 'Buttermarket Shopping Centre'],
+   dataSet : [
+	{ 
+	data : [3626.8812, 43326.3103, 496.1106, 7682.4436, 190.07, 1127.4844,673.5668,6087.886,1229.0503,8335.9516,66.4822,352.3406,284.803,673.4203,1101.0603,997.8092,243.7603,215.3752], name: 'CO2',  color : '90-#ccc-#a1a1a1:100-90'
+	},				
+             ]
+};
+
+
+new Columns(objData);
+
+
+</script>
+
+</body>
+
+
+</html>

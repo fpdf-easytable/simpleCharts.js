@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+<title>Raphael Play</title>
+<script type="text/javascript" src="raphael.min.js"></script>
+<script type="text/javascript" src="simpleCharts.min.js"></script>
+
+<style type="text/css">
+#canvas {
+lwidth: 500px;
+lheight: 50px;
+border: 1px solid #aaa;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<div id="canvas" style="width: 600px;margin:auto;" ></div>
+
+<script type="text/javascript">
+
+var objData={
+
+	canvasID : 'canvas',
+	chartType:'sunburst',
+	gridSettings:{
+						donutWidth:60,
+						orderData:false,
+						},
+	title:{text:'Test Donut', align:'left'},
+	subTitle:{text:'Test Donut', align:'left'},
+	keys : {position:'right', align:'bottom'},
+   dataSet : [
+				   { data : [20.50, [8.40, 5.60, 6.50]], name: ['Derbyshire County Council', ['Metal', 'Glass', 'Cardboard']], color:'#67af45'},
+					{ data : [45.00, [20.60, 24.40]], name: ['Bedfordshire Council', ['Wood', 'Plastic']], color:'#188ee2'},
+					{ data : [34.50, [15.35, 5.10, 14.05]], name: ['Derby', ['Glass', 'Paper', 'Others']], color:'#F7464A'},
+            ]
+};
+
+
+var grid=new SunburstChart(objData);
+
+
+</script>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+<title>Raphael Play</title>
+<script type="text/javascript" src="raphael.min.js"></script>
+<script type="text/javascript" src="simpleCharts.min.js"></script>
+
+<style type="text/css">
+#canvas {
+lwidth: 500px;
+lheight: 50px;
+border: 1px solid #aaa;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<!--div id="canvas" style="width: 1000px;margin:auto;margin-top: 20px;margin-bottom: 20px" ></div-->
+<div id="canvas" style="width: 400px;margin:auto;" ></div>
+
+<script type="text/javascript">
+
+var objData={
+
+	canvasID : 'canvas',
+	chartType:'donut',
+	title:{text:'Test Donut', align:'left'},
+	subTitle:{text:'Test Donut', align:'left'},
+	keys : {position:'right', align:'left'},
+//   settings : {donutWidth:40, maxDonutFont:50, },
+   dataSet : [
+				   { data : [0.50], name: 'Derbyshire County Council', color:'#67af45'},
+					{ data : [65.00], name: 'Bedfordshire Council', color:'#188ee2'},
+					{ data : [34.50], name: 'Derby', color:'#F7464A'},
+					
+            ]
+};
+
+
+var grid=new DonutChart(objData);
+
+
+
+/**/
+
+
+//####################################################################
+//####################################################################
+//####################################################################
+
+/*
+var Grid=new Paper('canvas');
+Grid.mkLine(10, 100, 100, 200);//, { color : 'red' });
+Grid.mkRect(30, 100, 100, 20);//, { color : 'red' });
+alert(Grid.getDimension('height'));
+/**/
+//####################################################################
+//####################################################################
+
+/*
+window.addEventListener('resize', function () { 
+    "use strict";
+    grid.Reload();
+    grid=new ColumnChart(objData);
+    //window.location.reload(); 
+   // alert('heloo');
+});
+*/
+
+</script>
+
+</body>
+
+
+</html>
