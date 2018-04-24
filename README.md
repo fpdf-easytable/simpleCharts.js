@@ -6,10 +6,6 @@ A set of hight customizable charts
 
 # Settings
 
-#################################################################
-#################################################################
-#################################################################
-#################################################################
 General structure for the object used to make a chart. Depending on the chart type, 
 some settings might vary.
 
@@ -79,6 +75,14 @@ Default "Arial, sans-serif" |
 | barThickness | the thickness for the bar, default 14 |
 | speed | the elapsed time, in ms, for the animation of the bar, default 500 |
 
+*Bubbles*
+
+    bubbleStyle : {fill:'#bddaf5', stroke:'#7aaadc'}
+
+| Setting | Description |
+| --- | --- |
+| bubbleStyle | style applied to the bubbles, default {fill:'#bddaf5', stroke:'#7aaadc'} |
+
 
 *Columns*
 
@@ -119,13 +123,6 @@ Default "Arial, sans-serif" |
 | elapsedTime | the elapsed time (in ms) for the line animation, default 2000 |
 
 
-*Bubbles*
-
-    bubbleStyle : {fill:'#bddaf5', stroke:'#7aaadc'}
-
-| Setting | Description |
-| --- | --- |
-| bubbleStyle | style applied to the bubbles, default {fill:'#bddaf5', stroke:'#7aaadc'} |
 
 
 **Note: **Colors can be set as gradient: '90-#ccc-#a1a1a1:100-90'
