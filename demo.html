@@ -19,39 +19,22 @@
 
 
 <style type="text/css">
-#canvas1 {
+.canvas{
 border: 1px solid #aaa;
+width:50%;
 margin:auto;
 }
 
-#canvas2 {
-border: 1px solid #aaa;
-margin:auto;
-}
-
-#canvas3 {
-border: 1px solid #aaa;
-margin:auto;
-}
-
-#canvas4 {
-border: 1px solid #aaa;
-margin:auto;
-}
-
-#canvas5 {
-border: 1px solid #aaa;
-margin:auto;
-}
-
-#canvas6 {
-border: 1px solid #aaa;
-margin:auto;
-}
-p{
-width:900px;
-margin:auto;
-border:1px solid #000000;
+pre{
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin-bottom: 10px;
+  overflow: auto;
+  width: auto;
+  padding: 5px;
+  background-color: #eee;
+  width: 650px!ie7;
+  padding-bottom: 20px!ie7;
+  max-height: 600px;
 }
 </style>
 
@@ -66,64 +49,178 @@ border:1px solid #000000;
 	A set of hight customizable charts
 	</h3>
 
-		<div id="canvas1" style="width:50%;"></div>
+		<div id="canvas1" class="canvas"></div>
 <br/>
 <br/>
-		<div id="canvas2" style="width:50%;"></div>		
+		<div id="canvas2" class="canvas"></div>		
 
 <br/>
 <br/>
 
-		<div id="canvas3" style="width:50%;"></div>
+		<div id="canvas3" class="canvas"></div>
 <br/>
 <br/>
-		<div id="canvas4" style="width:50%;"></div>		
+		<div id="canvas4" class="canvas"></div>		
 
 <br/>
 <br/>
 
-		<div id="canvas5" style="width:50%;"></div>
+		<div id="canvas5" class="canvas"></div>
 <br/>
 <br/>
-		<div id="canvas6" style="width:50%;"></div>		
+		<div id="canvas6" class="canvas"></div>		
 
 <br/>
 <br/>	
-	<!-- p>
-	Colors can be set as gradient: '90-#ccc-#a1a1a1:100-90'
-	</p>
-	<p>
-	gridSettings:{
-		bgColor:'#ffffff', //this.canvas.style.background='#a1a1a1';
-		// category 
-		categoryBoxWidth : 160, // width of the vertical strip where, in the case of bar chart, the categories are printed
-		categoryFontSize :12,
-		//scale
-		scaleColor : '#0000ff',//'#ccd6eb',
-		labelColor : '#666666',
-		scaleFontSize : 12,
-		scaleArea:45, //the width of the 
-		font:{
-				'font-family' : "Arial, sans-serif",
-				fill : '#000000', // font color
-				'font-size' : 12, 
-				'font-style' : 'normal', 
-				'font-weight' : 'normal'},
-		popUpA:{'maxWidth':200, paddingX:5, paddingY:5, justifyContent:'left', fill:'#ffffff', stroke:'#a1a1a1', 'stroke-width': 0.5, font:{fill:'#ff88ee', 'font-size':14, 'font-style':'normal', 'font-weight':'normal'}},
-		popUpB:{'maxWidth':300,  paddingX:5, paddingY:5, justifyContent:'left', fill:'#000000', stroke:'#a1a1a1', 'stroke-width': 0, font:{fill:'#ffffff', 'font-size':12, 'font-style':'normal', 'font-weight':'normal'}},				
-	},
-	title:{fill:'#000000', 'font-size':22, 'font-style':'normal','font-weight':'bold', },
-	subTitle:{fill:'#000000','font-size':16, 'font-style':'normal','font-weight':'normal'},
-	axisTitles : {fill:'#a18899','font-size':16, 'font-style':'normal','font-weight':'normal'},
-	keys : {fill:'#000000','font-size':14, 'font-style':'normal','font-weight':'normal'},	
-	additionalInfo: {fill:'#000000', 'font-size':12, 'font-style':'normal','font-weight':'normal'}
-};
 
-</p>
+<div>
+
+<h2>Settings</h2>
 <p>
-rowHeight : 30, //width of the space where the data will be written: set a max height so the rows adapt visually proportional
-barThickness:14, // the a max thickness too
-</p-->
+General structure for the object used to make a chart. Depending on the chart type, 
+some settings might vary.
+</p>
+<pre>
+<code>
+var objData={
+	canvasID : 'ID of the canvas container',
+	chartType:'bars/bubbles/columns/lines/donut/sunburst',
+	gridSettings:{...},
+	title:{text:'Title for the chart', align:'left/center/right', font:{...}},
+	subTitle:{text:'Subtitle for the chart', align:'left/center/right', font:{...}},
+	axisTitles : {yTitle:'Title for the vertical axe', xTitle: 'Title for the horizontal axe', font:{...}},
+	keys : {position:'left/top/right/bottom', align:'left/right/center', font:{...}},
+	additionalInfo: [
+				{position:'top/bottom', align:'left/right/center', content:'sdfsdfsdf', font:{...}},
+			],
+	labels: [...],
+	dataSet : [...],
+};
+</code>
+</pre>
+<p>
+The font property for the properties: title, subTitle, axisTitles, keys, and additionalInfo 
+has the following format:
+</p>
+<pre>
+<code>
+{fill:'#000000', 'font-size':22, 'font-style':'normal','font-weight':'bold', 'font-family': "myFontFamily"}
+</code>
+</pre>
+
+<p>
+General properties for the gridSettings property. Depending on the type of chart, additional
+settings will be used.
+</p>
+<pre>
+<code>
+gridSettings:{
+	bgColor:'#ffffff',
+	scaleColor : '#0000ff',
+	labelColor : '#666666',
+	
+	scaleFontSize : 12,
+	scaleArea:45, 
+	'font-family' : "Arial, sans-serif",
+	popUpA:{'maxWidth':200, paddingX:5, paddingY:5, justifyContent:'left', fill:'#ffffff', stroke:'#a1a1a1', 'stroke-width': 0.5, font:{fill:'#ff88ee', 'font-size':14, 'font-style':'normal', 'font-weight':'normal', 'font-family':'myFontFamily'}},
+	popUpB:{'maxWidth':300,  paddingX:5, paddingY:5, justifyContent:'left', fill:'#000000', stroke:'#a1a1a1', 'stroke-width': 0, font:{fill:'#ffffff', 'font-size':12, 'font-style':'normal', 'font-weight':'normal', 'font-family':'anotherFavouriteFontFamily'}},		
+}
+</code>
+</pre>
+
+<table>
+<tr><td>bgColor</td><td>the color of the canvas, default '#ffffff'</td></tr>
+<tr><td>scaleColor</td><td>color for the scale, default '#0000ff'</td></tr>
+<tr><td>labelColor </td><td>color for the font of the scale, default '#666666'</td></tr>
+<tr><td>scaleFontSize</td><td>scale font size, default 12</td></tr>
+<tr><td>'font-family'</td><td>font use across all the text in the chart, however this can be set for particular parts of the chart.
+Default "Arial, sans-serif"</td></tr>
+<tr><td>popUpA</td><td>settings for the popUp for the category text, if the category text is too wide to fit in the area allocated for it, it is set in a popUp, default {'maxWidth':200, paddingX:5, paddingY:5, justifyContent:'left', fill:'#ffffff', stroke:'#a1a1a1', 'stroke-width': 0.5, font:{fill:'#ff88ee', 'font-size':14, 'font-style':'normal', 'font-weight':'normal', 'font-family':''}},</td></tr>
+<tr><td>popUpB</td><td>settings for the popUp that will hold the description of the records, default {'maxWidth':300,  paddingX:5, paddingY:5, justifyContent:'left', fill:'#000000', stroke:'#a1a1a1', 'stroke-width': 0, font:{fill:'#ffffff', 'font-size':12, 'font-style':'normal', 'font-weight':'normal', 'font-family':''}},	</td></tr>	
+</table>
+
+
+<h2>Additional settings to be included in gridSettings</h2>
+<h3>Bars</h3>
+<pre>
+<code>
+rowHeight : 30,
+categoryFontSize : 12,
+categoryBoxWidth : 60,
+barThickness : 14,
+speed : 500,
+</code>
+</pre>
+<table>
+<tr><td>rowHeight</td><td>the line height of the category, default 30</td></tr>
+<tr><td>categoryBoxWidth</td><td>the max width for the category text, default 160</td></tr>
+<tr><td>categoryFontSize</td><td>the font size for the category text, default 12,</td></tr>
+<tr><td>barThickness</td><td>the thickness for the bar, default 14</td></tr>
+<tr><td>speed</td><td>the elapsed time, in ms, for the animation of the bar, default 500</td></tr>
+</table>
+
+<h3>Columns</h3>
+<pre>
+<code>
+maxColumnWidth : 60,
+columnPadding : 15, 
+groupColumnPadding : 50, 
+categoryFontSize : 12,
+</code>
+</pre>
+
+<table>
+<tr><td>maxColumnWidth</td><td>the max width for the columns (to keep the proportions), default 60</td></tr>
+<tr><td>columnPadding</td><td>space between each column, default 15</td></tr>
+<tr><td>groupColumnPadding</td><td>space between each group of columns, default 50</td></tr>
+</table>
+
+<h3>Donut and Sunburst</h3>
+<pre>
+<code>
+donutWidth : 30,
+maxDonutFont: 50,
+</code>
+</pre>
+
+
+<table>
+<tr><td>donutWidth</td><td>the width of the donut (the ring), default 30</td></tr>
+<tr><td>maxDonutFont</td><td>the max font size for the labels display in side the dunut, default 50</td></tr>
+</table>
+
+
+<h3>Lines</h3>
+<pre>
+<code>
+minDataInterval : 25, 
+'line-width' : 2,
+elapsedTime : 2000,
+categoryFontSize : 12,
+</code>
+</pre>
+<table>
+<tr><td>minDataInterval</td><td>minimum space between each record (or point), default 25</td></tr>
+<tr><td>'line-width'</td><td>the thickness for the lines, default 2</td></tr>
+<tr><td>elapsedTime</td><td>the elapsed time (in ms) for the line animation, default 2000</td></tr>
+</table>
+
+
+
+<h3>Bubbles</h3>
+<pre>
+<code>
+bubbleStyle : {fill:'#bddaf5', stroke:'#7aaadc'}
+</code>
+</pre>
+<table>
+<tr><td>bubbleStyle</td><td>style applied to the bubbles, default {fill:'#bddaf5', stroke:'#7aaadc'}</td></tr>
+</table>
+<p>
+<b>Note: </b>Colors can be set as gradient: '90-#ccc-#a1a1a1:100-90'
+</p>
+</div>
+
 
 </div>
 <script type="text/javascript">
