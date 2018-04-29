@@ -3,6 +3,9 @@ A set of hight customizable charts
  
 [Raphaël—JavaScript Library](http://dmitrybaranovskiy.github.io/raphael/).
 
+# Features
+
+- Automatic selection between logarithmic scale or linear scale.
 
 # Settings
 
