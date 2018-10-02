@@ -111,9 +111,9 @@ gridSettings:{
 	bgColor:'#ffffff',
 	scaleColor : '#0000ff',
 	labelColor : '#666666',
-	
 	scaleFontSize : 12,
 	scaleArea:45, 
+	mxDecimals:2,
 	'font-family' : "Arial, sans-serif",
 	popUpA:{'maxWidth':200, paddingX:5, paddingY:5, justifyContent:'left', fill:'#ffffff', stroke:'#a1a1a1', 'stroke-width': 0.5, font:{fill:'#ff88ee', 'font-size':14, 'font-style':'normal', 'font-weight':'normal', 'font-family':'myFontFamily'}},
 	popUpB:{'maxWidth':300,  paddingX:5, paddingY:5, justifyContent:'left', fill:'#000000', stroke:'#a1a1a1', 'stroke-width': 0, font:{fill:'#ffffff', 'font-size':12, 'font-style':'normal', 'font-weight':'normal', 'font-family':'anotherFavouriteFontFamily'}},		
@@ -126,6 +126,8 @@ gridSettings:{
 <tr><td>scaleColor</td><td>color for the scale, default '#0000ff'</td></tr>
 <tr><td>labelColor </td><td>color for the font of the scale, default '#666666'</td></tr>
 <tr><td>scaleFontSize</td><td>scale font size, default 12</td></tr>
+<tr><td>scaleArea</td><td>the width of space for the scale, default 45</td></tr>
+<tr><td>mxDecimals</td><td>the maximum number of decimal used for numeric values in the pop up, default 2</td></tr>
 <tr><td>'font-family'</td><td>font use across all the text in the chart, however this can be set for particular parts of the chart.
 Default "Arial, sans-serif"</td></tr>
 <tr><td>popUpA</td><td>settings for the popUp for the category text, if the category text is too wide to fit in the area allocated for it, it is set in a popUp, default {'maxWidth':200, paddingX:5, paddingY:5, justifyContent:'left', fill:'#ffffff', stroke:'#a1a1a1', 'stroke-width': 0.5, font:{fill:'#ff88ee', 'font-size':14, 'font-style':'normal', 'font-weight':'normal', 'font-family':''}},</td></tr>

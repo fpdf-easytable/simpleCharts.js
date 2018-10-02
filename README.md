@@ -41,6 +41,7 @@ settings will be used.
     labelColor : '#666666',	
     scaleFontSize : 12,
     scaleArea:45, 
+    mxDecimals:2,
     'font-family' : "Arial, sans-serif",
     popUpA:{'maxWidth':200, paddingX:5, paddingY:5, justifyContent:'left', fill:'#ffffff', stroke:'#a1a1a1', 'stroke-width': 0.5, font:{fill:'#ff88ee', 'font-size':14, 'font-style':'normal', 'font-weight':'normal', 'font-family':'myFontFamily'}},
     popUpB:{'maxWidth':300,  paddingX:5, paddingY:5, justifyContent:'left', fill:'#000000', stroke:'#a1a1a1', 'stroke-width': 0, font:{fill:'#ffffff', 'font-size':12, 'font-style':'normal', 'font-weight':'normal', 'font-family':'anotherFavouriteFontFamily'}},		
@@ -53,6 +54,7 @@ settings will be used.
 | scaleColor | color for the scale, default '#0000ff' |
 | labelColor  | color for the font of the scale, default '#666666' |
 | scaleFontSize | scale font size, default 12 |
+| mxDecimal | the maximun number of decimals to be display in the pop, default 2 |
 | 'font-family' | font use across all the text in the chart, however this can be set for particular parts of the chart.
 Default "Arial, sans-serif" |
 | popUpA | settings for the popUp for the category text, if the category text is too wide to fit in the area allocated for it, it is set in a popUp, default {'maxWidth':200, paddingX:5, paddingY:5, justifyContent:'left', fill:'#ffffff', stroke:'#a1a1a1', 'stroke-width': 0.5, font:{fill:'#ff88ee', 'font-size':14, 'font-style':'normal', 'font-weight':'normal', 'font-family':''}}, |
@@ -69,6 +71,7 @@ Default "Arial, sans-serif" |
     categoryBoxWidth : 60,
     barThickness : 14,
     speed : 500,
+    extraMk:true,
 
 | Setting | Description |
 | --- | --- |
@@ -77,15 +80,17 @@ Default "Arial, sans-serif" |
 | categoryFontSize | the font size for the category text, default 12, |
 | barThickness | the thickness for the bar, default 14 |
 | speed | the elapsed time, in ms, for the animation of the bar, default 500 |
+| extraMk | print an extra scale line, default true |
 
 *Bubbles*
 
     bubbleStyle : {fill:'#bddaf5', stroke:'#7aaadc'}
+    extraMk:true,
 
 | Setting | Description |
 | --- | --- |
 | bubbleStyle | style applied to the bubbles, default {fill:'#bddaf5', stroke:'#7aaadc'} |
-
+| extraMk | print an extra scale line, default true |
 
 *Columns*
 
@@ -93,22 +98,24 @@ Default "Arial, sans-serif" |
     columnPadding : 15, 
     groupColumnPadding : 50, 
     categoryFontSize : 12,
-
+    extraMk:true,
+    
 | Setting | Description |
 | --- | --- |
 | maxColumnWidth | the max width for the columns (to keep the proportions), default 60 |
 | columnPadding | space between each column, default 15 |
 | groupColumnPadding | space between each group of columns, default 50 |
+| extraMk | print an extra scale line, default true |
 
 
 *Donut and Sunburst*
 
-    donutWidth : 30,
+    donutRation : 0.3,
     maxDonutFont: 50,
 
 | Setting | Description |
 | --- | --- |
-| donutWidth | the width of the donut (the ring), default 30 |
+| donutRation | the ration of the donut width and the radio (the ring), default 0.3 |
 | maxDonutFont | the max font size for the labels display in side the dunut, default 50 |
 
 
@@ -118,13 +125,14 @@ Default "Arial, sans-serif" |
     'line-width' : 2,
     elapsedTime : 2000,
     categoryFontSize : 12,
+    extraMk:true,
 
 | Setting | Description |
 | --- | --- |
 | minDataInterval | minimum space between each record (or point), default 25 |
 | 'line-width' | the thickness for the lines, default 2 |
 | elapsedTime | the elapsed time (in ms) for the line animation, default 2000 |
-
+| extraMk | print an extra scale line, default true |
 
 
 
