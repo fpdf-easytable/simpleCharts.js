@@ -1,11 +1,27 @@
 # SimpleChartjs
-A set of hight customizable charts 
- 
-[Raphaël—JavaScript Library](http://dmitrybaranovskiy.github.io/raphael/).
+
+A set of six different charts hight customizable charts written in Javascript and [Raphaël—JavaScript Library](http://dmitrybaranovskiy.github.io/raphael/).
+Each chart is animated. 
+
 
 # Features
 
 - Automatic selection between logarithmic scale or linear scale.
+- Responsive: redraws charts on window resize.**_NEW FEATURE!!_**
+
+
+# Responsive
+
+To make any SimpleCharts responsive, use the chart loader function instead of the new operator:
+```
+ chartLoader('chartName', data);
+ //example:
+ chartLoader('Columns', data);
+```
+where data is the object that holds the settings and data for the chart. This can be an object
+or a string that can be parsed as an object
+**Note**: This functionality will work as far as the HTML container for the chart is
+responsive.
 
 # Settings
 

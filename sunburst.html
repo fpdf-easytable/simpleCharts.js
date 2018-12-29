@@ -19,7 +19,7 @@ border: 1px solid #aaa;
 </head>
 <body>
 
-<div id="canvas" style="width: 600px;margin:auto;" ></div>
+<div id="canvas" style="max-width: 600px;margin:auto;" ></div>
 
 <script type="text/javascript">
 
@@ -41,8 +41,7 @@ var objData={
             ]
 };
 
-
-var grid=new SunburstChart(objData);
+chartLoader('SunburstChart', objData);
 
 
 </script>

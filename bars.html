@@ -25,7 +25,7 @@ border: 1px solid #aaa;
 </head>
 <body>
 
-<div id="canvas" style="width: 1000px;margin:auto;" ></div>
+<div id="canvas" style="max-width: 1000px;margin:auto;" ></div>
 
 
 <script type="text/javascript">
@@ -62,8 +62,7 @@ var objData={
 				],
 };
 
-var bars=new Bars(objData);
-
+chartLoader('Bars', objData);
 </script>
 
 </body>

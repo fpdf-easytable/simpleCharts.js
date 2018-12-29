@@ -11,7 +11,6 @@
 
 <script type="text/javascript" src="raphael.min.js"></script>
 <script type="text/javascript" src="simpleCharts.min.js"></script>
-
 <style type="text/css">
 .canvas{
 border: 1px solid #aaa;
@@ -34,7 +33,7 @@ pre{
 </head>
 
 <body>
-<div style="width:1200px; margin:auto">
+<div style="max-width:1000px;margin:auto">
 	<h1>
 	Simple Chart js
 	</h1>
@@ -67,6 +66,27 @@ pre{
 <br/>	
 
 <div>
+
+<h2>Responsive</h2>
+<p>
+To make any SimpleCharts responsive, use the chart loader function instead of the new operator:
+</p>
+<pre>
+<code>
+chartLoader('chartName', data);
+//example:
+chartLoader('Columns', data);
+</code>
+</pre>
+<p>
+data is the object that holds the settings and data for the chart. This can be an object
+or a string that can be parsed as an object
+</p>
+<p>
+<b>Note</b>: This functionality will work as far as the HTML container for the chart is
+responsive.
+
+</p>
 
 <h2>Settings</h2>
 <p>
@@ -221,7 +241,7 @@ bubbleStyle : {fill:'#bddaf5', stroke:'#7aaadc'}
 <script type="text/javascript">
 "use strict";
 //*
-var objData={
+var objDataB={
 	canvasID : 'canvas1',
 	chartType:'bars',
 	gridSettings:{
@@ -252,14 +272,15 @@ var objData={
 	popUpBox:{font:{"font-weight":500}},
 };
 
-var bars=new Bars(objData);
+chartLoader('Bars', objDataB);
+//var bars=new Bars(objDataB);
 /**/
 </script>
 
 
 <script type="text/javascript">
-
-var objData2={
+//*
+var objDataBubbles={
 	canvasID : 'canvas2',
 	chartType:'bubbles',
 	gridSettings:{
@@ -293,7 +314,8 @@ var objData2={
 	]
 };
 
-var bubbles=new BubbleChart(objData2);
+chartLoader('BubbleChart', objDataBubbles);
+//var bubbles=new BubbleChart(objData2);
 /**/
 </script>
 
@@ -301,7 +323,7 @@ var bubbles=new BubbleChart(objData2);
 <script type="text/javascript">
 "use strict";
 //*
-var objData3={
+var objDataColumn={
 	canvasID : 'canvas3',
 	chartType:'columns',
 	title:{text:'Test Columns', align:'left'},
@@ -322,8 +344,8 @@ var objData3={
    ]
 };
 
-
-new Columns(objData3);
+chartLoader('Columns', objDataColumn);
+//new Columns(objData3);
 /**/
 </script>
 
@@ -332,7 +354,7 @@ new Columns(objData3);
 <script type="text/javascript">
 "use strict";
 //*
-var objData4={
+var objDataDonutChart={
 	canvasID : 'canvas4',
 	chartType:'donut',
 	gridSettings:{
@@ -349,14 +371,17 @@ var objData4={
             ]
 };
 
+chartLoader('DonutChart', objDataDonutChart);
 
-new DonutChart(objData4);
+/*
 
-/**/
+
+
+*/
 </script>
 <script type="text/javascript">
-
-var objData5={
+//*
+var objDataLines={
    canvasID : 'canvas5',
    chartType:'lines',
    
@@ -380,14 +405,14 @@ var objData5={
 };
 
 setTimeout(function(){
-	new Lines(objData5);
-}, 5000);447935435110
+chartLoader('Lines', objDataLines);
+}, 300);
+/**/
 </script>
 
 <script>
-
-
-var objData6={
+//
+var objDataSunBurst={
 
 	canvasID : 'canvas6',
 	chartType:'sunburst',
@@ -406,8 +431,9 @@ var objData6={
 };
 
 setTimeout(function(){
-	new SunburstChart(objData6);
-},100);
+	chartLoader('SunburstChart', objDataSunBurst);
+},500);
+/**/
 </script>
 
 

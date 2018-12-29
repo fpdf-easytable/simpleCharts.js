@@ -19,8 +19,7 @@ border: 1px solid #aaa;
 </head>
 <body>
 
-<!--div id="canvas" style="width: 1000px;margin:auto;margin-top: 20px;margin-bottom: 20px" ></div-->
-<div id="canvas" style="width: 400px;margin:auto;" ></div>
+<div id="canvas" style="max-width: 400px;margin:auto;" ></div>
 
 <script type="text/javascript">
 
@@ -40,8 +39,7 @@ var objData={
             ]
 };
 
-
-var grid=new DonutChart(objData);
+chartLoader('DonutChart', objData);
 
 
 
