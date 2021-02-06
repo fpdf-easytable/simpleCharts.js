@@ -1,3 +1,12 @@
+ /*********************************************************************
+ * paper.js                                                    *
+ *                                                                    *
+ * Version: 1.2                                                       *
+ * Date:    29-04-2018                                                *
+ * Author:  Dan Machado                                               *
+ * Require  raphaeljs v2.2.1                                          *
+ **********************************************************************/
+ 
 //###################################################################
 //###################################################################
 /*
@@ -24,7 +33,6 @@ data can be an json object of a string json
 					}
 				},
 		reload:function(){
-		        // console.log(this.list);
 					for(var i=0; i<this.list.length; i++){
 						document.getElementById(this.list[i][1].canvasID).innerHTML='';
 						this.list[i][2].Reload();
@@ -48,9 +56,6 @@ data can be an json object of a string json
 	};
 
 })();
-
-/*
-*/
 
 function formatNumber(x, p){
 	var d, num, tmp, l, r, txt;
@@ -81,8 +86,6 @@ function formatNumber(x, p){
 	return txt+'.'+tmp[1].substring(0, d);
 }
 
-/*
-*/
 
 function roundNumber(x, p){
 	var d=2;
@@ -215,33 +218,12 @@ function changeColor(str, correctionFactor){
 //###################################################################
 
 function Paper(id){
-	// *
 	this.ID=id;
 	var p=document.getElementById(this.ID);
 	this.paper=Raphael(id, p.clientWidth,p.clientHeight);//, this will take the default width and height
-	/**/
-	/*
-	this.ID=id;
-	var q=document.getElementById(this.ID);
-	this.pcnr=q.cloneNode(true);
-	this.paper=Raphael(this.pcnr, this.pcnr.clientWidth, this.pcnr.clientHeight);//, this will take the default width and height
-	/**/
-	
-	
-	//this.paper.setSize('100%', '100%');
-	//this.paper.rect(230,234, 200, 100,0);//.attr({fill:'#000000'});
-	
-	/*var svg = document.querySelector("svg");
-	svg.removeAttribute("width");
-	svg.removeAttribute("height");*/
 	
 }
-/*
-Paper.prototype.SetPaper=function(){
-	var dd=document.getElementById(this.ID);
-	dd.parentNode.replaceChild(this.pcnr, dd);
-};
-*/
+
 Paper.prototype.setViewBox=function(x, y, w, h,fit) {
 	this.paper.setViewBox(x, y, w, h,fit);
 };
@@ -291,53 +273,6 @@ Object.freeze(Paper.prototype.defaults);
 
 //####################################################################
 //####################################################################
-//####################################################################
-//####################################################################
-
-/* 
-function Core(obj){
-	this.id=obj;
-	this[obj]=null;
-};
-
-Core.prototype.hide=function() {
-	this[this.id].hide();
-};
-
-Core.prototype.show=function() {
-	this[this.id].show();
-};
-
-Core.prototype.toFront=function() {
-	this[this.id].toFront();
-};
-
-Core.prototype.toShow=function() {
-	this[this.id].toFront();
-	this[this.id].show();
-};
-
-
-Core.prototype.getBBox=function(bool){
-	if(typeof bool==='boolean') {
-		return this[this.id].getBBox(bool);
-	}
-	else{
-		return this[this.id].getBBox();
-	}
-};
-
-
-Core.prototype.mouseover=function(cbk){
-	this[this.id].mouseover(cbk);
-};
-
-
-Core.prototype.mouseout=function(cbk){
-	this[this.id].mouseout(cbk);
-};
-
-/**/
 //####################################################################
 //####################################################################
 
@@ -731,7 +666,6 @@ function Text(Paper, x, y, maxw, valign, align, text, Style){
 	Shape.call(this);
 	if(typeof Style==='undefined') {
 		Style=this.defaultStyle;
-		//console.log('sss');
 	}
 	else{
 		var p;
@@ -820,11 +754,7 @@ function Text(Paper, x, y, maxw, valign, align, text, Style){
 
 	this.obj.attr({x:bw, y:tw});
 	
-	//console.log('text instances: '+this.dummySVG.counter);
 	this.dummySVG.counter--;
-//	if(this.dummySVG.counter==0)
-	//document.body.appendChild(this.dummySVG.data);
-	//this.dummySVG.data.childNodes[0].childNodes[0].removeChild(this.dummySVG.data.childNodes[0].childNodes[0].childNodes[0]);
 };
 
 

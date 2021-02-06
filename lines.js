@@ -1,6 +1,14 @@
+ /*********************************************************************
+ * lines.js                                                    *
+ *                                                                    *
+ * Version: 1.2                                                       *
+ * Date:    29-04-2018                                                *
+ * Author:  Dan Machado                                               *
+ * Require  raphaeljs v2.2.1                                          *
+ **********************************************************************/
+ 
 function Lines(objData){
 	Grid.call(this, objData);
-	//console.log('Lines');
 
 	this.containerHeight=this.containerWidth/1.618;
 	this.canvas.style.height=this.containerHeight+'px';
@@ -25,8 +33,6 @@ function Lines(objData){
 	var bBox=this.bottomPanel.getBBox();
 	var tBox=this.topPanel.getBBox();
 
-//##########################################
-//##########################################
 	this.yAxisLength=this.containerHeight-(tBox.height+bBox.height+this.settings.paddingC+this.settings.paddingB+(3/5)*this.settings.paddingA);
 
 	this.vScale={
@@ -66,8 +72,6 @@ function Lines(objData){
 	//this.yScaleFactor=1;
 	//var yDiff=0;
 	if(this.vScale.axisLength!=this.yAxisLength){
-		//yDiff=this.vScale.axisLength-this.yAxisLength;
-		//this.yScaleFactor=(this.containerHeight+yDiff)/this.containerHeight;
 		this.containerHeight+=(this.vScale.axisLength-this.yAxisLength);
 		this.canvas.style.height=this.containerHeight+'px';
 	}
@@ -86,7 +90,6 @@ function Lines(objData){
 
 	this.mkVScale(this.xAxisLength);
 
-	//*
 	this.hScale();
 
 	this.ms=Math.round(this.settings.ms/this.objData.dataSet[0].data.length);
@@ -94,10 +97,6 @@ function Lines(objData){
 	this.printSeries(0);
 	
 	this.paper.setSize(this.containerWidth, this.containerHeight);
-	//this.paper.setViewBox(0, 0, this.scaleFactor*this.containerWidth, this.scaleFactor*this.containerHeight, true);
-	//this.canvas.style.height=(this.containerHeight/this.scaleFactor)+'px';
-	
-	/**/
 };
 
 

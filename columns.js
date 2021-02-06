@@ -1,3 +1,11 @@
+ /*********************************************************************
+ * columns.js                                                    *
+ *                                                                    *
+ * Version: 1.2                                                       *
+ * Date:    29-04-2018                                                *
+ * Author:  Dan Machado                                               *
+ * Require  raphaeljs v2.2.1                                          *
+ **********************************************************************/
 function Columns(objData){
 	Grid.call(this, objData);
 
@@ -51,8 +59,6 @@ function Columns(objData){
 	var bBox=this.bottomPanel.getBBox();
 	var tBox=this.topPanel.getBBox();
 
-	//this.yAxisLength=this.y0-(tBox.y+tBox.height+this.settings.paddingC);
-
 	this.yAxisLength=this.containerHeight-(tBox.height+bBox.height+this.settings.paddingC+this.settings.paddingB+(3/5)*this.settings.paddingA);
 
 	this.vScale={
@@ -104,32 +110,19 @@ function Columns(objData){
 	this.bottomPanel.move({y:t});
 	
 	this.y0=t-(this.settings.paddingB+(3/5)*this.settings.paddingA);
-	/*
-	console.log(this.getScaleValues(0.02));
-	console.log(this.getScaleValues(0.001));
-	console.log(this.getScaleValues(0.0001));
-	console.log(this.getScaleValues(0.00002));
-	console.log(this.getScaleValues(0.000002));
-	//console.log(this.getScaleValues(0.0000002));
-/**/
+
 	this.vTransform=this.transForm.bind(this.vScale);
 	this.vInvTransform=this.invTransForm.bind(this.vScale);
 
-	//console.log(this.vScale.isLogarithmic);
 
 	this.mkVScale(this.xAxisLength);
 
 	this.setCathegories(tmp);
-// *
+
 	this.printSeries(numGroups, numColumnsPerGroup);
 	
 	this.scaleDown();
-	/*
-	
-	this.paper.setSize(this.containerWidth, this.containerHeight);
-	this.paper.setViewBox(0, 0, this.scaleFactor*this.containerWidth, this.scaleFactor*this.containerHeight, true);
-	this.canvas.style.height=(this.containerHeight/this.scaleFactor)+'px';
-/**/
+
 };
 
 

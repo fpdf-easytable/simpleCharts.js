@@ -1,11 +1,17 @@
-
+ /*********************************************************************
+ * sunburst.js                                                    *
+ *                                                                    *
+ * Version: 1.2                                                       *
+ * Date:    29-04-2018                                                *
+ * Author:  Dan Machado                                               *
+ * Require  raphaeljs v2.2.1                                          *
+ **********************************************************************/
 function SunburstChart(objData){
 	Grid.call(this, objData);
 	// setDefaults
 	this.settings={
 							donutRation :0.3,
 							maxDonutFont:50,
-							//elapsedTime:3000,
 							orderData:true,
 						};
 
@@ -62,11 +68,8 @@ function SunburstChart(objData){
 
 	this.printArch(this.cAngle, data, ord, 0, 0, 700, 0, 0);
 	
-	//console.log('Sunburst: '+ this.containerWidth+', '+this.containerHeight);
-
 	this.canvas.style.height=this.containerHeight+'px';
 	this.paper.setSize(this.containerWidth, this.containerHeight);
-//	this.paper.paper.setViewBox(0, 0, this.containerWidth, this.containerHeight);
 };
 
 
@@ -82,7 +85,6 @@ SunburstChart.prototype=Object.create(Grid.prototype, {
 
 
 SunburstChart.prototype.printArch=function(startAngle, data, ord, i, j, ms, g, rt){//perc, color){
-	//console.log(i+' '+rt);
 	if(i<data.length){
 		var perc=data[i];
 
@@ -93,16 +95,12 @@ SunburstChart.prototype.printArch=function(startAngle, data, ord, i, j, ms, g, r
 			for(k=0; k<this.objData.dataSet[ord[i]].data[1].length; k++) {
 				tmpdata[k]=this.objData.dataSet[ord[i]].data[1][k];
 			}
-			
-			
-
 			this.printArch(startAngle, tmpdata, ord, 0, j, Math.floor(ms/this.objData.dataSet[ord[i]].data[1].length), g+1, ord[i]);
 		}
 
 		var donutArch=new AnimatedArch(this.paper, startAngle, perc, this.x0, this.y0, this.radious+g*this.donutWidth, this.donutWidth, ms, {fill:color, stroke:color,'stroke-width' : '0px'});
 		donutArch.attr({'stroke-width':'1px', stroke:'#ffffff'});
 
-		//var this=this;
 		if(g==0){
 			var labels=this.labels;
 			var current=this.dataTest;
@@ -202,11 +200,8 @@ SunburstChart.prototype.mkLabels=function(){
 		scale='s'+p+','+p+','+this.x0+','+this.y0;
 		
 		this.labels[i].move({x:xx, y:yy});
-		//*
 		this.labels[i].Scale(scale);
-		
 		this.labels[i].hide();
-		/**/
 	}
 };
 

@@ -1,4 +1,11 @@
-
+ /*********************************************************************
+ * grid.js                                                    *
+ *                                                                    *
+ * Version: 1.2                                                       *
+ * Date:    29-04-2018                                                *
+ * Author:  Dan Machado                                               *
+ * Require  raphaeljs v2.2.1                                          *
+ **********************************************************************/
 function Grid(objData){
 	this.objData=objData;
 	this.containerID=objData.canvasID;
@@ -59,8 +66,6 @@ Grid.prototype.setDefaults=function(){
 		}
 	}
 
-	//console.log(this.objData['additionalInfo'].font);
-
 	if(result.popUpA.font['font-family']==''){	
 		result.popUpA.font['font-family']=result['font-family'];
 	}	
@@ -76,8 +81,6 @@ Grid.prototype.setDefaults=function(){
 	this.settings.paddingC=5;
 	this.settings.popUpA.miniPage=true;	
 	this.settings.popUpB.miniPage=true;
-	
-//	console.log(this.settings.popUpA);
 	
 };
 
@@ -215,11 +218,7 @@ Grid.prototype.setPanelsTB=function(){
 	}
 
 	if(this.objData.hasOwnProperty('additionalInfo')){
-		//console.log(this.settings.additionalInfo);
 		var i, l, tmp, align;
-		//l=this.objData.additionalInfo.length;
-		//for(i=0; i<l; i++){
-			
 			aling=this.getAlignment.call(this.objData.additionalInfo[i]);
 			
 			if(this.objData.additionalInfo.position=='top'){
@@ -228,14 +227,11 @@ Grid.prototype.setPanelsTB=function(){
 		 					{w:this.containerWidth, align:align, vPadding:5}));
 			}
 			else{
-			//'/bottom', align:'left/right/center', content:'sdfsdfsdf'},
 				this.bottomPanel.insert(new Wrapper(new Text(this.paper, 0, 0, this.containerWidth, 'after', 'left', this.objData.additionalInfo.content, this.settings.additionalInfo),
 		 					{w:this.containerWidth, align:align, vPadding:5}));
 			}
-		//}
 	}
 
-	//this.topPanel.insertSpace(10);
 	this.bottomPanel.insertSpace(5);
 	this.topPanel.move({x:5, y:0});
 };
@@ -331,9 +327,6 @@ Grid.prototype.getScaleValues=function(x){
 	else if(x>=1000){
 		t=(String)(x/1000)+'k';
 	}
-	/*else if(this.scaleValues.hasOwnProperty(x)){
-		t=this.scaleValues[x];
-	}*/
 	return t;
 };
 
@@ -353,7 +346,6 @@ Grid.prototype.mkVScale=function(axisLength){
 	new Text(this.paper, tmp, this.y0-u, this.settings.scaleArea, 'middle', 'right', this.getScaleValues(this.vInvTransform(u)),  {fill : this.settings.labelColor, 'font-size':this.settings.scaleFontSize, 'font-family':this.settings['font-family']});
 	new Line(this.paper, this.x0, this.y0-u, this.x0+axisLength, this.y0-u, {stroke : this.settings.scaleColor});
 	
-	//this.paper.mkLine(x0, this.y0-u, x0+this.xAxisLength, this.y0, {stroke : this.settings.scaleColor});
 };
 
 
@@ -403,11 +395,9 @@ Grid.prototype.invTransForm=function(y, r){
 
 	var t=roundNumber(y/this.factor, r);
 	if(this.isLogarithmic){
-		//return Math.floor(1000000*Math.pow(10, this.minEx-1+(y/this.factor)))/1000000;
 		return Math.pow(10, this.minEx-1+t);
 	}
 	else{
-		//return roundNumber(Math.floor(1000000*y/this.factor)/1000000, 5);
 		return t;
 	}
 };
@@ -442,7 +432,6 @@ Grid.prototype.setScale=function(dataSet,doSomething){
 		}
 
 		this.factor=this.axisLength/(tmp-this.minEx+1);
-		//console.log(this.factor+' # '+ this.max+' '+this.min);
 	}
 	else{
 		
@@ -453,10 +442,8 @@ Grid.prototype.setScale=function(dataSet,doSomething){
  		var i,v=p; // p=u
  
  		for(i=0; i<t.length; i++){
-			//console.log(u+' @ '+p/t[i]);
 			if(u<p/t[i]){
 				v=p/t[i];
-				//console.log(p+' v: '+v);
 				break;
 			}
 		}
@@ -465,10 +452,8 @@ Grid.prototype.setScale=function(dataSet,doSomething){
 		if(t==this.max && this.extraMk){
 			t+=1/4*v; //MAX
 		}
-		//console.log(t+'<<<<--');
 		this.factor=this.axisLength/t;
 		this.intervalLength=v*this.factor;
-		//console.log(this.axisLength/this.intervalLength+' <<<----');
 	}	
 };
 
@@ -542,8 +527,6 @@ Grid.prototype.moveLabel=function(e, mw, mh, textBlock, cbk){
 	this.popUp.toShow();
 	this.popUp.bound(textBlock, this.settings.popUpA.paddingX, this.settings.popUpA.paddingY);
 	textBlock.toShow();
-	/**/
-	//cbk(xpos,ypos);
 };
 
 
@@ -557,8 +540,3 @@ Grid.prototype.Reload=function(){
 	this.paper.Clear();
 };
 
-
-
-//#####################################
-//#####################################
-//#####################################

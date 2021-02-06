@@ -1,4 +1,11 @@
-
+ /*********************************************************************
+ * bubbles.js                                                    *
+ *                                                                    *
+ * Version: 1.2                                                       *
+ * Date:    29-04-2018                                                *
+ * Author:  Dan Machado                                               *
+ * Require  raphaeljs v2.2.1                                          *
+ **********************************************************************/
 function BubbleChart(objData){
 	Grid.call(this, objData);
 	
@@ -94,11 +101,7 @@ function BubbleChart(objData){
 	});
 
 	//README: the chart does not scale down vertically
-	//this.yScaleFactor=1;
-	//var yDiff=0;
 	if(this.vScale.axisLength!=this.yAxisLength){
-		//yDiff=this.vScale.axisLength-this.yAxisLength;
-		//this.yScaleFactor=(this.containerHeight+yDiff)/this.containerHeight;
 		this.containerHeight+=(this.vScale.axisLength-this.yAxisLength);
 		this.canvas.style.height=this.containerHeight+'px';
 	}
@@ -137,11 +140,7 @@ function BubbleChart(objData){
 	}
 
 	this.scaleDown();
-	/*
-	this.paper.setSize(this.containerWidth, this.containerHeight);
-	this.paper.setViewBox(0, 0, this.scaleFactor*this.containerWidth, this.scaleFactor*this.containerHeight, true);
-	this.canvas.style.height=(this.containerHeight/this.scaleFactor)+'px';
-	/**/
+
 };
 
 

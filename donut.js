@@ -1,4 +1,11 @@
-
+ /*********************************************************************
+ * donut.js                                                    *
+ *                                                                    *
+ * Version: 1.2                                                       *
+ * Date:    29-04-2018                                                *
+ * Author:  Dan Machado                                               *
+ * Require  raphaeljs v2.2.1                                          *
+ **********************************************************************/
 function DonutChart(objData){
 	Grid.call(this, objData);
 	// setDefaults
@@ -63,8 +70,6 @@ function DonutChart(objData){
 
 	this.canvas.style.height=this.containerHeight+'px';
 	this.paper.setSize(this.containerWidth, this.containerHeight);
-//	this.paper.paper.setViewBox(0, 0, this.containerWidth, this.containerHeight);
-
 };
 
 
@@ -79,7 +84,7 @@ DonutChart.prototype=Object.create(Grid.prototype, {
 
 
 
-DonutChart.prototype.printArch=function(ord, i){//perc, color){
+DonutChart.prototype.printArch=function(ord, i){
 	if(i<this.objData.dataSet.length){
 		var j=ord[i];
 		var perc=this.objData.dataSet[j].data;
@@ -96,8 +101,7 @@ DonutChart.prototype.printArch=function(ord, i){//perc, color){
 			current.a=ii;
 			labels[ii].show();				
 		}
-		
-		//var this=this;
+	
 		var r=null;
 		donutArch.mouseover(function (e) {
 			if(r==null){
@@ -107,22 +111,18 @@ DonutChart.prototype.printArch=function(ord, i){//perc, color){
 					labels[ii].show();				
 				}
 					
-				//donutArch.attr({'stroke-width':'5px', stroke:this.objData.dataSet[j].color, 'stroke-opacity':0.5});
 				donutArch.attr({fill:changeColor(this.objData.dataSet[j].color, 0.2)});
-				//donutArch.attr({'stroke-width' : '3px'});
 				r=1;
 			}
 		}.bind(this));
 	
 		donutArch.mouseout(function () {
-			//donutArch.attr({'stroke-width' : '0px'});
 			donutArch.attr({fill:this.objData.dataSet[j].color});
 			r=null;		
 		}.bind(this));
 		
 		this.cAngle+=2*Math.PI*perc/100;
 		i++;
-		//var this=this;
 		setTimeout(function(){
 			this.printArch(ord, i);
 		}.bind(this), ms);
@@ -154,11 +154,8 @@ DonutChart.prototype.mkLabels=function(){
 		scale='s'+p+','+p+','+this.x0+','+this.y0;
 		
 		this.labels[i].move({x:xx, y:yy});
-		//*
-		this.labels[i].Scale(scale);
-		
+		this.labels[i].Scale(scale);		
 		this.labels[i].hide();
-		/**/
 	}
 };
 

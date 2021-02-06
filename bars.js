@@ -1,4 +1,11 @@
-
+ /*********************************************************************
+ * bars.js                                                    *
+ *                                                                    *
+ * Version: 1.2                                                       *
+ * Date:    29-04-2018                                                *
+ * Author:  Dan Machado                                               *
+ * Require  raphaeljs v2.2.1                                          *
+ **********************************************************************/
 function Bars(objData){
 	Grid.call(this, objData);
 	this.settings={
@@ -107,11 +114,7 @@ function Bars(objData){
 	this.printData();	
 	
 	this.scaleDown();
-	/*
-	this.paper.setSize(this.containerWidth, this.containerHeight);
-	this.paper.setViewBox(0, 0, this.scaleFactor*this.containerWidth, this.scaleFactor*this.containerHeight, true);
-	this.canvas.style.height=(this.containerHeight/this.scaleFactor)+'px';
-	/**/
+
 };
 
 
@@ -191,7 +194,6 @@ Bars.prototype.stockedBars=function(y, t, v, c, i, id){
 		new AnimateHBar(this.paper, this.x0+this.hTransform(t), y, this.hTransform(rt)-this.hTransform(t), this.settings.barThickness, ms, {fill : c[i], 'stroke-width' : '0px'});
 		this.paper.getById(id).toFront();
 		i++;
-		//var rThis=this;
 		setTimeout(function(){
 			this.stockedBars(y,rt,v,c, i, id);	
 		}.bind(this), ms);
@@ -216,7 +218,6 @@ Bars.prototype.stockedLogData=function(y, vals, colors, keys, label, orderr){
 			
 			var bar=new Rect(this.paper, this.x0, y, x, this.settings.barThickness, {fill:'#ffffff','fill-opacity':0.0, 'stroke-opacity':0.0});
 
-			//this.stockedBars.call(this, y, 0, vals, colors, 0, bar.getId());	
 			this.stockedBars(y, 0, vals, colors, 0, bar.getId());	
 			
 			var texts=new Group('stocked', this.settings.popUpA.justifyContent);
@@ -250,8 +251,7 @@ Bars.prototype.stockedLogData=function(y, vals, colors, keys, label, orderr){
 				texts.hide();
 				popUp.hide();
 				r=null;
-			});
-			/**/		
+			});	
 		}.bind(this), Math.round(Math.random()*100)*10);
 	}.bind(this))();
 };
